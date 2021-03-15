@@ -8,8 +8,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "webpack --mode production",
-    "dev": "webpack --watch --mode development",
-    "prepare": "npm run build"
+    "dev": "webpack --watch --mode development"
   },
   "repository": {
     "type": "git",
