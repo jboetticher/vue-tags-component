@@ -1,3 +1,7 @@
+This is the same as the base component. These are the following changes:  
+- Maxed out the listing of tags at 5.
+- Made the active listing z-index 5.  
+
 # vue-tags-component
 
 [![Latest Version on NPM](https://img.shields.io/npm/v/vue-tags-component.svg?style=flat-square)](https://npmjs.com/package/vue-tags-component)
