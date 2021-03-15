@@ -24,19 +24,17 @@
             (colorsEnabled && 'color' in tag ? tag.color : tagColorDefault)
           "
         >
-          <div v-if="index <= 5">
-            <span class="tag__name">{{ tag.name }}</span>
-            <div
-              class="tag__remove-button"
-              v-if="tagListActive"
-              @click="removeTag(tag)"
-            >
-              <svg viewBox="0 0 8 8">
-                <polygon
-                  points="8 1.01818182 6.98181818 0 4 2.98181818 1.01818182 0 0 1.01818182 2.98181818 4 0 6.98181818 1.01818182 8 4 5.01818182 6.98181818 8 8 6.98181818 5.01818182 4"
-                ></polygon>
-              </svg>
-            </div>
+          <span class="tag__name">{{ tag.name }}</span>
+          <div
+            class="tag__remove-button"
+            v-if="tagListActive"
+            @click="removeTag(tag)"
+          >
+            <svg viewBox="0 0 8 8">
+              <polygon
+                points="8 1.01818182 6.98181818 0 4 2.98181818 1.01818182 0 0 1.01818182 2.98181818 4 0 6.98181818 1.01818182 8 4 5.01818182 6.98181818 8 8 6.98181818 5.01818182 4"
+              ></polygon>
+            </svg>
           </div>
         </div>
         <div class="tags__search-block">
@@ -57,21 +55,19 @@
           :key="index"
           @click="addTag(index)"
         >
-          <div v-if="index <= 5">
-            <span
-              class="tags__create-tag-label"
-              v-if="tagCreationEnabled && tag.id === 0"
-              >Create</span
-            >
-            <div
-              class="tags__list-item-tag"
-              :style="
-                'background-color:' +
-                (colorsEnabled && 'color' in tag ? tag.color : tagColorDefault)
-              "
-            >
-              <span>{{ tag.name }}</span>
-            </div>
+          <span
+            class="tags__create-tag-label"
+            v-if="tagCreationEnabled && tag.id === 0"
+            >Create</span
+          >
+          <div
+            class="tags__list-item-tag"
+            :style="
+              'background-color:' +
+              (colorsEnabled && 'color' in tag ? tag.color : tagColorDefault)
+            "
+          >
+            <span>{{ tag.name }}</span>
           </div>
         </div>
       </div>
@@ -178,6 +174,9 @@ export default {
           color: this.newTagColor,
         });
       }
+
+      list = list.slice(0, 5);
+      console.log(list);
 
       return list;
     },
@@ -402,6 +401,7 @@ export default {
 
   &--active {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    z-index: 5;
   }
 
   &__active {
@@ -412,7 +412,7 @@ export default {
     border-radius: 3px;
     border: 1px solid #cfcfcf;
     position: relative;
-    z-index: 5;
+    z-index: 1;
 
     &--tag-list-active {
       border-radius: 3px 3px 0 0;
@@ -502,6 +502,7 @@ export default {
 
     &--tag-list-active {
       box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+      z-index: 5;
     }
   }
 }
